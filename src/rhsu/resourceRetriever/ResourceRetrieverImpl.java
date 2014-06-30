@@ -12,7 +12,6 @@ public class ResourceRetrieverImpl implements ResourceRetriever
 		bufferedReader = new BufferedReader(new InputStreamReader( getClass().getResourceAsStream(location + filename)));
 	}
 	
-	
 	@Override
 	public BufferedReader getResource(String filename)
 	{
@@ -23,6 +22,11 @@ public class ResourceRetrieverImpl implements ResourceRetriever
 	public BufferedReader getResource(String filename, String location)
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
+	}
+	
+	public static ResourceRetriever getResourceRetriever(String filename, String location)
+	{
+		return new ResourceRetrieverImpl(filename, location);
 	}
 	
 }
